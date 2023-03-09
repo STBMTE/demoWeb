@@ -20,4 +20,8 @@ public class PostService {
     public List<Post> listAllPosts(){
         return ListPosts;
     }
+
+    public void create(String text) {
+        ListPosts.add(new Post(text, 0, new Date()));
+    }
 }
