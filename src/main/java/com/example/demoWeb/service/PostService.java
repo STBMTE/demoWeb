@@ -13,15 +13,15 @@ public class PostService {
 
     public PostService(){
         Date creationDate = new Date();
-        ListPosts.add(new Post("Post 1", 72, creationDate));
-        ListPosts.add(new Post("Post 2", 52, creationDate));
-        ListPosts.add(new Post("Post 3", 2, creationDate));
+        ListPosts.add(new Post(0L, "Post 1", 72, creationDate));
+        ListPosts.add(new Post(1L, "Post 2", 52, creationDate));
+        ListPosts.add(new Post(2L, "Post 3", 2, creationDate));
     }
     public List<Post> listAllPosts(){
         return ListPosts;
     }
 
     public void create(String text) {
-        ListPosts.add(new Post(text, 0, new Date()));
+        ListPosts.add(new Post(ListPosts.size() + 1L, text,0, new Date()));
     }
 }
