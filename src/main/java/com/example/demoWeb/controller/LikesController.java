@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LikesController {
     @Autowired
-    private LikesService likesService;
-
+    LikesService likesService;
     @ResponseBody
     @RequestMapping(path = "/post/{id}/like", method = RequestMethod.POST)
     public String like(@PathVariable("id") Long id) {

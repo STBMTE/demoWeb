@@ -14,18 +14,14 @@ import java.util.Date;
 @Controller
 public class PostsCreateController {
     @Autowired
-    private PostService postService;
-
+    PostService postsService;
     @RequestMapping(path = "/new", method = RequestMethod.GET)
-    public String list(Model model) {
-        model.addAttribute("appName", "Моё супер приложение");
-        model.addAttribute( "posts", postService.listAllPosts());
+    public String create() {
         return "create";
     }
-
-    @RequestMapping(path="/new", method = RequestMethod.POST)
-    public String doCreate(@ModelAttribute("text") String text){
-        postService.create(text);
+    @RequestMapping(path = "/new", method = RequestMethod.POST)
+    public String doCreate(@ModelAttribute("text") String text) {
+        postsService.create(text);
         return "redirect:/";
     }
 }
